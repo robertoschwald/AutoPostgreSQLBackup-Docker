@@ -155,7 +155,7 @@ COMP=bzip2
 # set the DOWEEKLY setting, this can be a value from 1 to 7 where 1 is Monday,
 # The default is 6 which means that weekly backups are done on a Saturday.
 #
-# COMP is used to choose the copmression used, options are gzip or bzip2.
+# COMP is used to choose the copmpression used. Options are gzip or bzip2.
 # bzip2 will produce slightly smaller files but is more processor intensive so
 # may take longer to complete.
 #
@@ -253,17 +253,27 @@ dbdumpGlobals () {
 SUFFIX=""
 compression () {
    if [ "$COMP" = "gzip" ]; then
+        if [ ! command -v gzip &> /dev/null ]; then
+	    echo "gzip not found. PLEASE FIX."
+	    COMP = ""
+	    return 0
+	fi
 	gzip -f "$1"
 	echo
 	echo Backup Information for "$1"
 	gzip -l "$1.gz"
 	SUFFIX=".gz"
    elif [ "$COMP" = "bzip2" ]; then
+        if [ ! command -v bzip2 &> /dev/null ]; then
+	    echo "bzip2 not found. PLEASE FIX."
+	    COMP = ""
+	    return 0
+	fi
 	echo Compression information for "$1.bz2"
 	bzip2 -f -v $1 2>&1
 	SUFFIX=".bz2"
    else
-	echo "No compression option set, check advanced settings"
+	echo "No compression option set or compression binary not found, check advanced settings"
    fi
    return 0
 }
