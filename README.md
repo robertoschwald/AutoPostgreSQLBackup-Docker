@@ -13,7 +13,9 @@ It may be useful if you run Docker PostgreSQL container(s) and want to backup al
 
 
 # How it works:
-- Reads pg username from POSTGRES_USER Docker container env var, as set in PG Docker images. See https://hub.docker.com/_/postgres
-- Creates separate backup directories per docker container, and backs up into its daily|weekly|monthly dir
-- Additionally backs up global data like users into a global dump.
+- Reads pg username from POSTGRES_USER Docker container env var, as set in PG Docker images. 
+ - See https://hub.docker.com/_/postgres
+- Creates separate backup directories per docker container 
+- Backs up the db(s) internally in the container, and stores the dump into the containers daily|weekly|monthly dir
+- Additionally backs up global data like users into a global dump file
 - Optionally compresses the dump file
