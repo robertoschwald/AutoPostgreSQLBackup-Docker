@@ -11,7 +11,7 @@ It may be useful if you run Docker PostgreSQL container(s) and want to backup al
 - Set MAILADDR
 - Optionally change the DBNAMES from "all" to a list of dbs you want to be backed up selectively
 - Run the script
-- Optionally, set a cron job (e.g. in /etc/cron.daily) to run it automatically.
+- Optionally, set a cron job (e.g. in /etc/cron.daily) on the Docker host to run it automatically.
 
 
 # How it works:
