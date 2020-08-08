@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #
 # PostgreSQL Docker Backup Script Ver 1.0
 #
