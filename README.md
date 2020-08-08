@@ -6,8 +6,10 @@ It may be useful if you run Docker PostgreSQL container(s) and want to backup al
 
 # Installation
 - Copy autopostgresqlbackup_docker to your Docker host
-- Fill in PG_CONTAINERS with the name(s) of your pg containers
+- Fill in PG_CONTAINERS with the name(s) of all your pg containers you want to be backed up (space separated)
+- Configure the BACKUPBASEDIR
 - Set MAILADDR
+- Optionally change the DBNAMES from "all" to a list of dbs you want to be backed up selectively
 - Run the script
 - Optionally, set a cron job (e.g. in /etc/cron.daily) to run it automatically.
 
