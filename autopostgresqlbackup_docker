@@ -214,6 +214,7 @@ VER=1.0						# Version Number
 LOGFILE=$BACKUPBASEDIR/$HOSTNAME-`date +%N`.log	# Logfile Name
 OPT=""						# OPT string for use with mysqldump ( see man mysqldump )
 BACKUPFILES=""					# thh: added for later mailing
+umask 077                                       # Secure created files
 
 # Create backup dir
 if [ ! -e "$BACKUPBASEDIR" ]		# Check Backup Directory exists.
