@@ -336,7 +336,7 @@ for container in $PG_CONTAINERS; do
    echo
    echo ======================================================================
    echo AutoPostgreSQLBackup Docker VER $VER
-   echo http://autopgsqlbackup.frozenpc.net/
+   echo https://github.com/robertoschwald/AutoPostgreSQLBackup-Docker
    echo
    echo Backup of Database Server - $HOSTNAME - $container
    echo ======================================================================
